@@ -14,6 +14,7 @@ namespace Assignment3
     public class SLL : ILinkedListADT
     {
         // The head of the singly linked list
+        //
         Node<User> head;
 
         // Holds the letters in the alphaber with corresponding int based on ascending order, in lower case
