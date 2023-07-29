@@ -44,37 +44,58 @@ namespace Assignment3
             }
         }
 
-        // Document description: Check if the linked list has an item.
+        /// <summary>
+        /// Checks if the list is empty.
+        /// </summary>
+        /// <returns>True if it is empty.</returns>
         public bool IsEmpty()
         {
             throw new NotImplementedException();
         }
 
-        // Doc Description: Clear all items in the linked list.
+        /// <summary>
+        /// Clears the list.
+        /// </summary>
         public void Clear()
         {
             throw new NotImplementedException();
         }
 
-        // Document description: Append an item to the end of the linked list.
+        /// <summary>
+        /// Adds to the end of the list.
+        /// </summary>
+        /// <param name="value">Value to append.</param>
         public void AddLast(User value)
         {
             throw new NotImplementedException();
         }
 
-        // Document description: Prepend an item to the beginning of the linked list.
+        /// <summary>
+        /// Prepends (adds to beginning) value to the list.
+        /// </summary>
+        /// <param name="value">Value to store inside element.</param>
         public void AddFirst(User value)
         {
             
         }
 
-        // Document description: Insert an item at a specific index in the linked list.
+        /// <summary>
+        /// Adds a new element at a specific position.
+        /// </summary>
+        /// <param name="value">Value that element is to contain.</param>
+        /// <param name="index">Index to add new element at.</param>
+        /// <exception cref="IndexOutOfRangeException">Thrown if index is negative or past the size of the list.</exception>
         public void Add(User value, int index)
         {
             throw new NotImplementedException();
         }
 
-        // Document Description: Replace an item in the linked list.
+        /// <summary>
+        /// Replaces the value  at index.
+        /// </summary>
+        /// <param name="value">Value to replace.</param>
+        /// <param name="index">Index of element to replace.</param>
+        /// <exception cref="IndexOutOfRangeException">Thrown if index is negative or larger than size - 1 of list.</exception>
         public void Replace(User value, int index)
         {
             throw new NotImplementedException();
@@ -89,13 +110,19 @@ namespace Assignment3
             throw new NotImplementedException();
         }
 
-        // Document Description: Remove an item from the start of the linked list.
+        /// <summary>
+        /// Removes first element from list
+        /// </summary>
+        /// <exception cref="CannotRemoveException">Thrown if list is empty.</exception>
         public void RemoveFirst()
         {
             
         }
 
-        // Document Description: Remove an item from the end of the linked list.
+        /// <summary>
+        /// Removes last element from list
+        /// </summary>
+        /// <exception cref="CannotRemoveException">Thrown if list is empty.</exception>
         public void RemoveLast()
         {
             throw new NotImplementedException();
