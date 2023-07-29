@@ -80,7 +80,10 @@ namespace Assignment3
             throw new NotImplementedException();
         }
 
-        // Document Description: Get the number of items in the linked list.
+        /// <summary>
+        /// Gets the number of elements in the list.
+        /// </summary>
+        /// <returns>Size of list (0 meaning empty)</returns>
         public int Count()
         {
             throw new NotImplementedException();
