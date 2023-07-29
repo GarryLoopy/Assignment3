@@ -33,8 +33,8 @@ using System.Threading.Tasks;
 //  4. ReverseOrder
 //  5. GetValue
 //  6. Remove
-//  7. Serialization
-//  8. Deserialization
+//  7. Serialization (SerializationTests + SerializationHelper)
+//  8. Deserialization (SerializationTests + SerializationHelper)
 //--------------------
 
 
