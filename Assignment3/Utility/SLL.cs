@@ -6,6 +6,40 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
+//--------------------
+// Methods and Tests
+// Dave:
+//  1. IsEmpty
+//  2. Count
+//  3. Add
+//  4. IndexOf
+//--------------------
+// JJ:
+//  1. Clear
+//  2. Contains
+//  3. RemoveLast
+//  4. AddLast
+//--------------------
+// Jairo:
+//  1. AddFirst
+//  2. RemoveFirst
+//  3. Replace
+//  4. CopyToArray
+//--------------------
+// Garry (Finished):
+//  1. CopyFromArray
+//  2. Split
+//  3. Join
+//  4. Sort
+//  5. ReverseOrder
+//  6. GetValue
+//  7. Remove
+//  8. Serialization
+//  9. Deserialization
+//--------------------
+
+
+
 namespace Assignment3
 {
     /// <summary>
@@ -44,6 +78,7 @@ namespace Assignment3
             }
         }
 
+        // Dave
         /// <summary>
         /// Checks if the list is empty.
         /// </summary>
@@ -53,6 +88,7 @@ namespace Assignment3
             throw new NotImplementedException();
         }
 
+        // JJ
         /// <summary>
         /// Clears the list.
         /// </summary>
@@ -70,6 +106,7 @@ namespace Assignment3
             throw new NotImplementedException();
         }
 
+        // Jairo
         /// <summary>
         /// Prepends (adds to beginning) value to the list.
         /// </summary>
@@ -79,6 +116,7 @@ namespace Assignment3
             
         }
 
+        // Dave
         /// <summary>
         /// Adds a new element at a specific position.
         /// </summary>
@@ -90,6 +128,7 @@ namespace Assignment3
             throw new NotImplementedException();
         }
 
+        // Jairo
         /// <summary>
         /// Replaces the value  at index.
         /// </summary>
@@ -101,6 +140,7 @@ namespace Assignment3
             throw new NotImplementedException();
         }
 
+        // Dave
         /// <summary>
         /// Gets the number of elements in the list.
         /// </summary>
@@ -110,6 +150,7 @@ namespace Assignment3
             throw new NotImplementedException();
         }
 
+        // Jairo
         /// <summary>
         /// Removes first element from list
         /// </summary>
@@ -119,6 +160,7 @@ namespace Assignment3
             
         }
 
+        // JJ
         /// <summary>
         /// Removes last element from list
         /// </summary>
@@ -202,12 +244,14 @@ namespace Assignment3
             return node.Value;
         }
 
+        // Dave
         // Document description: Get the index of an item in the linked list.
         public int IndexOf(User value)
         {
             throw new NotImplementedException();
         }
 
+        // JJ
         // Document description: Check if the linked list has an item.
         public bool Contains(User value)
         {
@@ -288,6 +332,7 @@ namespace Assignment3
             }
         }
 
+        // Jairo
         // Doc description: Copy the values of the linked list nodes into an array.
         public User[] CopyToArray()
         {
@@ -323,6 +368,7 @@ namespace Assignment3
             node.Next = singlyLinkedList.head;
         }
 
+        // JJ
         /// <summary>
         /// Splits the singly linked list via given index
         /// </summary>
