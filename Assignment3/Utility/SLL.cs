@@ -44,63 +44,54 @@ namespace Assignment3
         }
 
         // Document description: Check if the linked list has an item.
-        // Dave
         public bool IsEmpty()
         {
             throw new NotImplementedException();
         }
 
         // Doc Description: Clear all items in the linked list.
-        // JJ
         public void Clear()
         {
             throw new NotImplementedException();
         }
 
         // Document description: Append an item to the end of the linked list.
-        // Dave
         public void AddLast(User value)
         {
             throw new NotImplementedException();
         }
 
         // Document description: Prepend an item to the beginning of the linked list.
-        // Jairo
         public void AddFirst(User value)
         {
             
         }
 
         // Document description: Insert an item at a specific index in the linked list.
-        // JJ
         public void Add(User value, int index)
         {
             throw new NotImplementedException();
         }
 
         // Document Description: Replace an item in the linked list.
-        // Jairo
         public void Replace(User value, int index)
         {
             throw new NotImplementedException();
         }
 
         // Document Description: Get the number of items in the linked list.
-        // Jairo
         public int Count()
         {
             throw new NotImplementedException();
         }
 
         // Document Description: Remove an item from the start of the linked list.
-        // JJ
         public void RemoveFirst()
         {
             
         }
 
         // Document Description: Remove an item from the end of the linked list.
-        // Jairo
         public void RemoveLast()
         {
             throw new NotImplementedException();
@@ -187,7 +178,6 @@ namespace Assignment3
         }
 
         // Document description: Check if the linked list has an item.
-        // JJ
         public bool Contains(User value)
         {
             throw new NotImplementedException();
@@ -268,7 +258,6 @@ namespace Assignment3
         }
 
         // Doc description: Copy the values of the linked list nodes into an array.
-        // Dave
         public User[] CopyToArray()
         {
             throw new NotImplementedException();
