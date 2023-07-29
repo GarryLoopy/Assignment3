@@ -27,15 +27,14 @@ using System.Threading.Tasks;
 //  4. CopyToArray
 //--------------------
 // Garry (Finished):
-//  1. CopyFromArray
-//  2. Split
-//  3. Join
-//  4. Sort
-//  5. ReverseOrder
-//  6. GetValue
-//  7. Remove
-//  8. Serialization
-//  9. Deserialization
+//  1. Split
+//  2. Join
+//  3. Sort
+//  4. ReverseOrder
+//  5. GetValue
+//  6. Remove
+//  7. Serialization
+//  8. Deserialization
 //--------------------
 
 
