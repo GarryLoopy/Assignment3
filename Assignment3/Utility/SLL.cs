@@ -5,10 +5,11 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 //--------------------
 // Methods and Tests
-// Dave:
+// Dave (Finished):
 //  1. IsEmpty
 //  2. Count
 //  3. Add
@@ -82,7 +83,11 @@ namespace Assignment3
         /// <returns>True if it is empty.</returns>
         public bool IsEmpty()
         {
-            throw new NotImplementedException();
+            // Check if head is empty
+            if (head == null)
+                return true;
+            
+            return false;
         }
 
         // JJ
@@ -151,7 +156,47 @@ namespace Assignment3
         /// <exception cref="IndexOutOfRangeException">Thrown if index is negative or past the size of the list.</exception>
         public void Add(User value, int index)
         {
-            throw new NotImplementedException();
+            // Checks if index is negative or greater than count of linked list
+            if (index < 0 || index >= Count())
+                throw new ArgumentOutOfRangeException("Index is out of bounds");
+            // Checks if linked list is empty
+            else if (IsEmpty())
+                throw new ArgumentOutOfRangeException("Singly linked list is empty");
+
+            // Checks if index is 0 or final index and do  respective methods
+            if (index == 0)
+            {
+                AddFirst(value);
+                return;
+            }
+            else if (index == Count() - 1)
+            {
+                AddLast(value);
+                return;
+            }
+
+            // Create a separate pointer to the start of the singly linked list
+            Node<User> node = head;
+
+            // Represents new node
+            Node<User> newNode = new Node<User>(value);
+
+            // Iterate until desired index is reached
+            for (int i = 0; i < index; i++)
+            {
+                // Checks if index in front is the desired index to add the new node node into
+                if (i + 1 >= index)
+                    break;
+
+                // Go to next node
+                node = node.Next;
+            }
+
+            // Set the next of new node to the next of the pointer
+            newNode.Next = node.Next;
+
+            // Set the pointer's next to new node
+            node.Next = newNode;
         }
 
         // Jairo
@@ -187,7 +232,24 @@ namespace Assignment3
         /// <returns>Size of list (0 meaning empty)</returns>
         public int Count()
         {
-            throw new NotImplementedException();
+            // Starting index
+            int count = 0;
+
+            // Creates a pointer to the start of the linked list
+            Node<User> node = head;
+
+            // Iterates through each node
+            while (node != null)
+            {
+                // Increment count
+                count++;
+
+                // Go to next node
+                node = node.Next;
+            }
+
+            // Returns index of found nodes
+            return count;
         }
 
         // Jairo
@@ -240,6 +302,7 @@ namespace Assignment3
             secondToLast.Next = null;
         }
 
+        // Garry
         /// <summary>
         /// Removes element at index from list, reducing the size.
         /// </summary>
@@ -285,6 +348,7 @@ namespace Assignment3
             node.Next = node.Next.Next;
         }
 
+        // Garry
         /// <summary>
         /// Gets the value at the specified index.
         /// </summary>
@@ -315,10 +379,30 @@ namespace Assignment3
         }
 
         // Dave
-        // Document description: Get the index of an item in the linked list.
+        /// <summary>
+        /// Gets the first index of element containing value.
+        /// </summary>
+        /// <param name="value">Value to find index of.</param>
+        /// <returns>First of index of node with matching value or -1 if not found.</returns>
         public int IndexOf(User value)
         {
-            throw new NotImplementedException();
+            // Singly Linked list is empty
+            if (IsEmpty())
+                return -1;
+
+            // Create a separate pointer called node
+            Node<User> node = head;
+
+            for (int i = 0; i < Count(); i++)
+            {
+                if (node.Value.Equals(value))
+                    return i;
+
+                node = node.Next;
+            }
+
+            // Value not in singly linked list
+            return -1;
         }
 
         // JJ
@@ -349,6 +433,7 @@ namespace Assignment3
             return false;
         }
 
+        // Garry
         /// <summary>
         /// Reserverses the order of the current nodes in the linked list
         /// </summary>
@@ -389,6 +474,7 @@ namespace Assignment3
             head = tail;
         }
 
+        // Garry
         /// <summary>
         /// Sorts the linked list in ascending order via current user name
         /// </summary>
@@ -423,7 +509,7 @@ namespace Assignment3
             }
         }
 
-        //Jairo
+        // Jairo
         /// <summary>
         /// Copies the values of each node onto an array of Users
         /// </summary>
@@ -458,6 +544,7 @@ namespace Assignment3
             return array;
         }
 
+        // Garry
         /// <summary>
         /// Joins the current linked list to the given linked list
         /// </summary>
@@ -487,7 +574,7 @@ namespace Assignment3
             node.Next = singlyLinkedList.head;
         }
 
-        // JJ
+        // Garry
         /// <summary>
         /// Splits the singly linked list via given index
         /// </summary>
@@ -530,6 +617,7 @@ namespace Assignment3
             return array;
         }
 
+        // Garry
         /// <summary>
         /// Sets the current values of the Singly Linked List from the given array of users
         /// </summary>
