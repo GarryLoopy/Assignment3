@@ -246,5 +246,145 @@ namespace Assignment3.Tests
                 Assert.Fail(ex.Message); 
             }
         }
+
+        /// <summary>
+        /// AddFirst Test
+        /// </summary>
+        [Test]
+        public void TestAddFirst()
+        {
+            // Test user's
+            User user0 = new User(0, "", "", "");
+            User user1 = new User(1, "", "", "");
+            User user2 = new User(2, "", "", "");
+
+            singlyLinkedList.AddFirst(user2);
+            singlyLinkedList.AddFirst(user1);
+            singlyLinkedList.AddFirst(user0);
+
+            try
+            {
+                // Check if singly linked list length equals to 3
+                Assert.That(singlyLinkedList.Count(), Is.EqualTo(3));
+
+                // Check if each index contains the proper users
+                Assert.IsTrue(singlyLinkedList.GetValue(0).Equals(user0));
+                Assert.IsTrue(singlyLinkedList.GetValue(1).Equals(user1));
+                Assert.IsTrue(singlyLinkedList.GetValue(2).Equals(user2));
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Assert.Fail(ex.Message);
+            }
         }
+
+        /// <summary>
+        /// RemoveFirst Test
+        /// </summary>
+        [Test]
+        public void TestRemoveFirst()
+        {
+            // Test user's
+            User user0 = new User(0, "", "", "");
+            User user1 = new User(1, "", "", "");
+            User user2 = new User(2, "", "", "");
+
+            singlyLinkedList.AddLast(user0);
+            singlyLinkedList.AddLast(user1);
+            singlyLinkedList.AddLast(user2);
+
+            try
+            {
+                singlyLinkedList.RemoveFirst();
+
+                // Check if singly linked list length equals to 2
+                Assert.That(singlyLinkedList.Count(), Is.EqualTo(2));
+
+                // Check if the first user has been removed
+                Assert.IsTrue(singlyLinkedList.GetValue(0).Equals(user1));
+                Assert.IsTrue(singlyLinkedList.GetValue(1).Equals(user2));
+
+            }
+            catch (InvalidOperationException ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Replace Test
+        /// </summary>
+        [Test]
+        public void TestReplace()
+        {
+            // Test user's
+            User user0 = new User(0, "", "", "");
+            User user1 = new User(1, "", "", "");
+            User user2 = new User(2, "", "", "");
+
+            singlyLinkedList.AddLast(user0);
+            singlyLinkedList.AddLast(user1);
+            singlyLinkedList.AddLast(user2);
+
+            User newUser = new User(3, "", "", "");
+
+            try
+            {
+                singlyLinkedList.Replace(newUser, 1);
+
+                // Check if singly linked list length still equals to 3
+                Assert.That(singlyLinkedList.Count(), Is.EqualTo(3));
+
+                // Check if the user at index 1 has been replaced
+                Assert.IsTrue(singlyLinkedList.GetValue(1).Equals(newUser));
+
+                // Checks for the other users
+                Assert.IsTrue(singlyLinkedList.GetValue(0).Equals(user0));
+                Assert.IsTrue(singlyLinkedList.GetValue(2).Equals(user2));
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// CopyToArray Test
+        /// </summary>
+        [Test]
+        public void TestCopyToArray()
+        {
+            // Test user's
+            User user0 = new User(0, "", "", "");
+            User user1 = new User(1, "", "", "");
+            User user2 = new User(2, "", "", "");
+
+            singlyLinkedList.AddLast(user0);
+            singlyLinkedList.AddLast(user1);
+            singlyLinkedList.AddLast(user2);
+
+            try
+            {
+                User[] array = singlyLinkedList.CopyToArray();
+
+                // Check if the array length is 3
+                Assert.That(array.Length, Is.EqualTo(3));
+
+                // Check if the array contains the correct users in order
+                Assert.IsTrue(array[0].Equals(user0));
+                Assert.IsTrue(array[1].Equals(user1));
+                Assert.IsTrue(array[2].Equals(user2));
+            }
+            catch (InvalidOperationException ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+        }
+
+
     }
+}

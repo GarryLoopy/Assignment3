@@ -110,7 +110,14 @@ namespace Assignment3
         /// <param name="value">Value to store inside element.</param>
         public void AddFirst(User value)
         {
-            
+            // Create a new node with the given value.
+            Node<User> newNode = new Node<User>(value);
+
+            // Set the Next pointer of the new node to the current head of the linked list.
+            newNode.Next = head;
+
+            // Update the head of the linked list to point to the new node, making it the new first node.
+            head = newNode;
         }
 
         // Dave
@@ -134,7 +141,21 @@ namespace Assignment3
         /// <exception cref="IndexOutOfRangeException">Thrown if index is negative or larger than size - 1 of list.</exception>
         public void Replace(User value, int index)
         {
-            throw new NotImplementedException();
+            // Check if the provided index is out of range (negative or larger than or equal to the number of elements in the list).
+            if (index < 0 || index >= Count())
+                throw new ArgumentOutOfRangeException("Index is out of range.");
+
+            // Create a pointer to the head of the linked list.
+            Node<User> current = head;
+
+            // Move the current pointer to the node at the specified index.
+            for (int i = 0; i < index; i++)
+            {
+                current = current.Next;
+            }
+
+            // Update the value of the node at the specified index with the new provided value.
+            current.Value = value;
         }
 
         // Dave
@@ -151,10 +172,17 @@ namespace Assignment3
         /// <summary>
         /// Removes first element from list
         /// </summary>
-        /// <exception cref="CannotRemoveException">Thrown if list is empty.</exception>
+        /// <exception cref="InvalidOperationException">Thrown if list is empty.</exception>
         public void RemoveFirst()
         {
-            
+            // Check if the linked list is not empty (i.e., if the head is not null).
+            if (head != null)
+            {
+                // Update the head to point to the next node, effectively skipping the first node.
+                head = head.Next;
+            }
+            // If the linked list is empty, the method does nothing, as there is nothing to remove.
+            throw new InvalidOperationException("The list is empty");
         }
 
         // JJ
@@ -329,11 +357,39 @@ namespace Assignment3
             }
         }
 
-        // Jairo
-        // Doc description: Copy the values of the linked list nodes into an array.
+        //Jairo
+        /// <summary>
+        /// Copies the values of each node onto an array of Users
+        /// </summary>
+        /// <returns>A user array container each user from each nodes</returns>
+        /// <exception cref="InvalidOperationException">Thrown if linked list is empty</exception>
         public User[] CopyToArray()
         {
-            throw new NotImplementedException();
+            // Checks if linked list is empty
+            if (IsEmpty())
+                throw new InvalidOperationException("Linked list is empty");
+
+            // Create an array of User objects with the size equal to the number of elements in the linked list.
+            User[] array = new User[Count()];
+
+            // Create a pointer to the head of the linked list.
+            Node<User> current = head;
+
+            // Initialize an index variable to keep track of the position in the array.
+            int index = 0;
+
+            // Iterate through each node in the linked list until the end is reached.
+            while (current != null)
+            {
+                // Add the value of the current node to the array at the current index.
+                array[index++] = current.Value;
+
+                // Move to the next node in the linked list.
+                current = current.Next;
+            }
+
+            // Return the array containing the values of the linked list nodes.
+            return array;
         }
 
         /// <summary>
