@@ -389,6 +389,195 @@ namespace Assignment3.Tests
             }
         }
 
+        // JJ
+        /// <summary>
+        /// TestClear
+        /// </summary>
+        [Test]
+        public void TestClear()
+        {
+            // Test users
+            User user0 = new User(0, "", "", "");
+            User user1 = new User(1, "", "", "");
+            User user2 = new User(2, "", "", "");
 
+            // Add users to singly linked list
+            singlyLinkedList.AddLast(user0);
+            singlyLinkedList.AddLast(user1);
+            singlyLinkedList.AddLast(user2);
+
+            // Check if singly linked list length equals to 3
+            Assert.That(singlyLinkedList.Count(), Is.EqualTo(3));
+
+            // Clear singly linked list
+            singlyLinkedList.Clear();
+
+            // Check if singly linked list length equals to 0
+            Assert.That(singlyLinkedList.Count(), Is.EqualTo(0));
+        }
+
+        // JJ
+        /// <summary>
+        /// TestContains
+        /// </summary>
+        [Test]
+        public void TestContainsExistingMultiple()
+        {
+            // Test users
+            User user0 = new User(0, "", "", "");
+            User user1 = new User(1, "", "", "");
+            User user2 = new User(2, "", "", "");
+
+            // Add users to singly linked list
+            singlyLinkedList.AddLast(user0);
+            singlyLinkedList.AddLast(user1);
+            singlyLinkedList.AddLast(user2);
+
+            // Check if singly linked list contains the users
+            Assert.IsTrue(singlyLinkedList.Contains(user0));
+            Assert.IsTrue(singlyLinkedList.Contains(user1));
+            Assert.IsTrue(singlyLinkedList.Contains(user2));
+        }
+
+        // JJ
+        /// <summary>
+        /// Test Contains Non Existing
+        /// </summary>
+        [Test]
+        public void TestContainsNonExistingMultiple()
+        {
+            // Test users
+            User user0 = new User(0, "", "", "");
+            User user1 = new User(1, "", "", "");
+            User user2 = new User(2, "", "", "");
+
+            // Add users to singly linked list
+            singlyLinkedList.AddLast(user0);
+            singlyLinkedList.AddLast(user1);
+            singlyLinkedList.AddLast(user2);
+
+            // Checks if singly linked list contains the users; should be false
+            Assert.IsFalse(singlyLinkedList.Contains(user0));
+            Assert.IsFalse(singlyLinkedList.Contains(user1));
+            Assert.IsFalse(singlyLinkedList.Contains(user2));
+        }
+
+        // JJ
+        /// <summary>
+        /// Test Contains Empty
+        /// </summary>
+        [Test]
+        public void TestContainsEmpty()
+        {
+            // Test user
+            User user = new User(0, "", "", "");
+
+            Assert.IsFalse(singlyLinkedList.Contains(user));
+        }
+        
+        // JJ
+        /// <summary>
+        /// TestRemoveLast
+        /// </summary>
+        [Test]
+        public void TestRemoveLastEmpty()
+        {
+            Assert.Throws<InvalidOperationException>(() => singlyLinkedList.RemoveLast());
+        }
+
+        // JJ
+        /// <summary>
+        /// TestRemoveLast
+        /// </summary>
+        [Test]
+        public void TestRemoveLastSingleElement()
+        {
+            // Test user
+            User user = new User(0, "", "", "");
+
+            // Add user to singly linked list
+            singlyLinkedList.AddLast(user);
+
+            // Check if singly linked list length equals to 1
+            Assert.That(singlyLinkedList.Count(), Is.EqualTo(1));
+
+            // Remove last element
+            singlyLinkedList.RemoveLast();
+
+            // Check if singly linked list length equals to 0 and if the last element is null
+            Assert.That(singlyLinkedList.Count(), Is.EqualTo(0));
+            Assert.IsNull(singlyLinkedList.GetValue(0));
+        }
+
+        // JJ
+        /// <summary>
+        /// Tests if the last element is removed from a list with multiple elements
+        /// </summary>
+        [Test]
+        public void TestRemoveLastMultiple()
+        {
+            // Test users
+            User user0 = new User(0, "", "", "");
+            User user1 = new User(1, "", "", "");
+            User user2 = new User(2, "", "", "");
+
+            // Add users to singly linked list
+            singlyLinkedList.AddLast(user0);
+            singlyLinkedList.AddLast(user1);
+            singlyLinkedList.AddLast(user2);
+
+            // Remove last element
+            singlyLinkedList.RemoveLast();
+
+            // Check if singly linked list length equals to 2
+            Assert.That(singlyLinkedList.Count(), Is.EqualTo(2));
+
+            // Check if the users are in the correct order
+            Assert.IsTrue(singlyLinkedList.GetValue(0).Equals(user0));
+            Assert.IsTrue(singlyLinkedList.GetValue(1).Equals(user1));
+        }
+
+        // JJ
+        /// <summary>
+        /// Test AddLast
+        /// </summary>
+        [Test]
+        public void TestAddLast()
+        /// <summary>
+        /// TestAddLast
+        /// </summary>
+        {
+            // Test users
+            User user0 = new User(0, "", "", "");
+            User user1 = new User(1, "", "", "");
+            User user2 = new User(2, "", "", "");
+
+            // Add user0 to singly linked list
+            singlyLinkedList.AddLast(user0);
+
+            // Check if singly linked list length equals 1
+            Assert.That(singlyLinkedList.Count(), Is.EqualTo(1));
+
+            // Check if first node contains the user0
+            Assert.IsTrue(singlyLinkedList.GetValue(0).Equals(user0));
+
+            // Add user1 to singly linked list
+            singlyLinkedList.AddLast(user1);
+
+            // Check if singly linked list length equals 2
+            Assert.That(singlyLinkedList.Count(), Is.EqualTo(2));
+
+            // Check if second node contains the user1
+            Assert.IsTrue(singlyLinkedList.GetValue(1).Equals(user1));
+
+            // Add user2 to singly linked list
+            singlyLinkedList.AddLast(user2);
+
+            // Check if singly linked list length equals 3
+            Assert.That(singlyLinkedList.Count(), Is.EqualTo(3));
+
+            // Check if third node contains the user2
+            Assert.IsTrue(singlyLinkedList.GetValue(2).Equals(user2));
+        }
     }
 }
