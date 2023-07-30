@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 //  3. Add
 //  4. IndexOf
 //--------------------
-// JJ:
+// JJ (Finished):
 //  1. Clear
 //  2. Contains
 //  3. RemoveLast
@@ -91,16 +91,38 @@ namespace Assignment3
         /// </summary>
         public void Clear()
         {
-            throw new NotImplementedException();
+            // Set the head to null, clearing the list.
+            head = null;
         }
 
+        // JJ
         /// <summary>
         /// Adds to the end of the list.
         /// </summary>
         /// <param name="value">Value to append.</param>
         public void AddLast(User value)
         {
-            throw new NotImplementedException();
+            Node<User> newNode = new Node<User>(value);
+
+            // Check if the linked list is empty.
+            if (head == null)
+            {
+                // If the linked list is empty, set the head to the new node.
+                head = newNode;
+                return;
+            }
+
+            // Create a pointer to the head of the linked list.
+            Node<User> current = head;
+
+            // Move the current pointer to the last node in the linked list.
+            while (current.Next != null)
+            {
+                current = current.Next;
+            }
+
+            // Set the Next pointer of the last node to the new node.
+            current.Next = newNode;
         }
 
         // Jairo
@@ -189,10 +211,33 @@ namespace Assignment3
         /// <summary>
         /// Removes last element from list
         /// </summary>
-        /// <exception cref="CannotRemoveException">Thrown if list is empty.</exception>
+        /// <exception cref="InvalidOperationException">Thrown if list is empty.</exception>
         public void RemoveLast()
         {
-            throw new NotImplementedException();
+            if (head == null)
+            {
+                // If list is empty
+                throw new InvalidOperationException("The list is empty");
+            }
+
+            if (head.Next == null)
+            {
+                // Only one element
+                head = null;
+                return;
+            }
+
+            // Find the second-to-last node.
+            Node<User> secondToLast = head;
+
+            // Loop until the second-to-last node is found.
+            while (secondToLast.Next.Next != null)
+            {
+                secondToLast = secondToLast.Next;
+            }
+
+            // Remove the last node.
+            secondToLast.Next = null;
         }
 
         /// <summary>
@@ -277,10 +322,31 @@ namespace Assignment3
         }
 
         // JJ
-        // Document description: Check if the linked list has an item.
+        /// <summary>
+        /// Go through nodes and check if one has value.
+        /// </summary>
+        /// <param name="value">Value to find index of.</param>
+        /// <returns>True if element exists with value.</returns>
         public bool Contains(User value)
         {
-            throw new NotImplementedException();
+            // Create a pointer to the start of the list
+            Node<User> current = head;
+
+            // Iterate through each node in the linked list
+            while (current != null)
+            {
+                // Check if the current node's value is equal to the value being searched for
+                if (current.Value.Equals(value))
+                {
+                    return true;
+                }
+
+                // Move to the next node
+                current = current.Next;
+            }
+
+            // If the value was not found, return false
+            return false;
         }
 
         /// <summary>
