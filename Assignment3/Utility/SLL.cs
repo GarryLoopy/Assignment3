@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 //  3. RemoveLast
 //  4. AddLast
 //--------------------
-// Jairo:
+// Jairo (Finished):
 //  1. AddFirst
 //  2. RemoveFirst
 //  3. Replace
