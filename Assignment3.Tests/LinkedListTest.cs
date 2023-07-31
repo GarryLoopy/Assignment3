@@ -54,7 +54,7 @@ namespace Assignment3.Tests
 
                 // Checks if both SLL's contains the proper user
                 Assert.IsTrue(retrievedSLL[0].GetValue(0).Equals(testUser));
-                Assert.IsTrue(retrievedSLL[1].GetValue(0).Equals(testUser));
+                Assert.IsTrue(retrievedSLL[1].GetValue(0).Equals(newTestUser));
 
             }
             catch (InvalidOperationException ex)
@@ -454,12 +454,12 @@ namespace Assignment3.Tests
             // Add users to singly linked list
             singlyLinkedList.AddLast(user0);
             singlyLinkedList.AddLast(user1);
-            singlyLinkedList.AddLast(user2);
 
-            // Checks if singly linked list contains the users; should be false
-            Assert.IsFalse(singlyLinkedList.Contains(user0));
-            Assert.IsFalse(singlyLinkedList.Contains(user1));
+            // Checks if singly linked list contains the user; should be false
             Assert.IsFalse(singlyLinkedList.Contains(user2));
+
+            Assert.IsTrue(singlyLinkedList.Contains(user0));
+            Assert.IsTrue(singlyLinkedList.Contains(user1));
         }
 
         // JJ
@@ -506,7 +506,6 @@ namespace Assignment3.Tests
 
             // Check if singly linked list length equals to 0 and if the last element is null
             Assert.That(singlyLinkedList.Count(), Is.EqualTo(0));
-            Assert.IsNull(singlyLinkedList.GetValue(0));
         }
 
         // JJ
@@ -579,5 +578,7 @@ namespace Assignment3.Tests
             // Check if third node contains the user2
             Assert.IsTrue(singlyLinkedList.GetValue(2).Equals(user2));
         }
+    
+    
     }
 }

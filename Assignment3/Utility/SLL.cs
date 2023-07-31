@@ -264,6 +264,7 @@ namespace Assignment3
             {
                 // Update the head to point to the next node, effectively skipping the first node.
                 head = head.Next;
+                return;
             }
             // If the linked list is empty, the method does nothing, as there is nothing to remove.
             throw new InvalidOperationException("The list is empty");
