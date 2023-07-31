@@ -65,6 +65,10 @@ namespace Assignment3.Tests
             {
                 Assert.Fail(ex.Message);
             }
+            catch (IndexOutOfRangeException ex)
+            {
+                Assert.Fail(ex.Message);
+            }   
         }
 
         /// <summary>

@@ -57,7 +57,7 @@ namespace Assignment3.Tests
         public static ILinkedListADT? DeserializeUsers(string fileName)
         {
             string jsonString = File.ReadAllText(fileName);
-            SLLSerializableClass serializableClass = JsonSerializer.Deserialize<SLLSerializableClass>(jsonString);
+            SLLSerializableClass? serializableClass = JsonSerializer.Deserialize<SLLSerializableClass>(jsonString);
 
             return serializableClass.ConvertToSLL();
         }
