@@ -10,27 +10,7 @@ namespace Assignment3
     {
         public static void Main(string[] args) 
         { 
-            // Comment
-            // Comment
-            // Comment
-            // Comment
-            // Comment
-            // Comment
-            // Comment
-            // Comment
-            // Comment
-            // Comment
-            // New Comment
-            // New Comment
-            // New Comment
-            // New Comment
-            // New Comment
-            // New Comment
-            // New Comment
-            // New Comment
-            // New Comment
-            // New Comment
-            // New Comment
+
         }
     }
 }
