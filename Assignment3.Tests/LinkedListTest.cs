@@ -578,7 +578,116 @@ namespace Assignment3.Tests
             // Check if third node contains the user2
             Assert.IsTrue(singlyLinkedList.GetValue(2).Equals(user2));
         }
-    
-    
+
+        //Dave
+        /// <summary>
+        /// Test if count return to zero
+        /// </summary>
+        [Test]
+        public void TestCountEmpty()
+        {
+            // Check if singly linked list length equals to 0
+            Assert.That(singlyLinkedList.Count(), Is.EqualTo(0));
+        }
+
+        //Dave
+        /// <summary>
+        /// Test if method returns the right count
+        /// </summary>
+        [Test]
+        public void TestCount()
+        {
+            // Test users
+            User user0 = new User(0, "", "", "");
+            User user1 = new User(1, "", "", "");
+            User user2 = new User(2, "", "", "");
+
+            // Add users to singly linked list
+            singlyLinkedList.AddLast(user0);
+            singlyLinkedList.AddLast(user1);
+            singlyLinkedList.AddLast(user2);
+
+            // 
+            Assert.That(singlyLinkedList.Count(), Is.EqualTo(3));
+        }
+
+        // Garry
+        /// <summary>
+        /// Test Index of valid
+        /// </summary>
+        [Test]
+        public void TestValidIndexOf()
+        {
+            // Test users
+            User user0 = new User(0, "", "", "");
+            User user1 = new User(1, "", "", "");
+            User user2 = new User(2, "", "", "");
+
+            // Should look like user0 -> user1 -> user2 -> null
+            singlyLinkedList.AddLast(user0);
+            singlyLinkedList.AddLast(user1);
+            singlyLinkedList.AddLast(user2);
+
+            // Check if singly linked list length equals to 3
+            Assert.That(singlyLinkedList.Count(), Is.EqualTo(3));
+
+            // Check if the users are in the correct order
+            Assert.That(singlyLinkedList.IndexOf(user0), Is.EqualTo(0));
+            Assert.That(singlyLinkedList.IndexOf(user1), Is.EqualTo(1));
+            Assert.That(singlyLinkedList.IndexOf(user2), Is.EqualTo(2));
+        }
+
+        // Garry
+        /// <summary>
+        /// Test Index of invalid
+        /// </summary>
+        [Test]
+        public void TestInvalidIndexOf()
+        {
+            // Test user
+            User user0 = new User(0, "", "", "");
+
+            // Check if user0 is not in the list
+            Assert.That(singlyLinkedList.IndexOf(user0), Is.EqualTo(-1));
+        }
+
+        // Garry
+        /// <summary>
+        /// Test IsEmpty
+        /// </summary>
+        [Test]
+        public void TestIsEmpty()
+        {
+            Assert.IsTrue(singlyLinkedList.IsEmpty());
+        }
+
+        // Garry
+        /// <summary>
+        /// Test Add
+        /// </summary>
+        [Test]
+        public void TestAdd()
+        {
+            // Test user
+            User user0 = new User(0, "", "", "");
+            User user1 = new User(1, "", "", "");
+            User user2 = new User(2, "", "", "");
+
+            // Add user0 to singly linked list
+            singlyLinkedList.AddLast(user0);
+
+            // Adds user1 to the beginning of the list
+            // Adds user2 to the beginning of the list
+            // Should look like user2 -> user1 -> user0 -> null
+            singlyLinkedList.Add(user1, 0);
+            singlyLinkedList.Add(user2, 0);
+
+            Assert.That(singlyLinkedList.Count(), Is.EqualTo(3));
+
+            // Check if the users are in the correct order
+            Assert.IsTrue(singlyLinkedList.GetValue(0).Equals(user2));
+            Assert.IsTrue(singlyLinkedList.GetValue(1).Equals(user1));
+            Assert.IsTrue(singlyLinkedList.GetValue(2).Equals(user0));
+        }
     }
 }
