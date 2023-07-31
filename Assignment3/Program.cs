@@ -29,6 +29,14 @@ namespace Assignment3
             // Another person makes a change
             // Another person makes a change
             // Another person makes a change
+
+
+            // Remote person makes a change to the file
+            // Remote person makes a change to the file
+            // Remote person makes a change to the file
+            // Remote person makes a change to the file
+            // Remote person makes a change to the file
+            // Remote person makes a change to the file
         }
     }
 }
